@@ -12,10 +12,10 @@ public class RegisterPage {
     private final WebDriver driver;
 
      final By nameField = By.xpath("//input[@name='name']");
-     final By emailField = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input");
+     final By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
      final By passwordField = By.xpath("//input[@name='Пароль']");
-     final By registerButton = By.xpath("//*[@id=\"root\"]/div/main/div/div/p[1]/a");
-     final By loginLink = By.xpath("//*[@id=\"root\"]/div/main/div/div/p/a");
+     final By registerButton = By.cssSelector("button.button_button__33qZ0");
+     final By loginLink = By.xpath("//a[text()='Войти']");
      final By errorMessage = By.xpath("//p[contains(@class, 'input__error')]");
 
     public RegisterPage(WebDriver driver) {

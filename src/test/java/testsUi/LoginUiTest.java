@@ -54,12 +54,12 @@ public class LoginUiTest extends BaseUiTest {
     @DisplayName("Вход через кнопку в форме регистрации")
     @Description("Проверяет вход через ссылку в форме регистрации")
     public void testLoginFromRegisterForm() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         mainPage.open();
         mainPage.clickPersonalAccountButton();  // нажали личный кабинет
         registerPage.waitForPageLoad();
-        registerPage.clickRegisterButton();
-        registerPage.clickLoginLink();  // перешли в регистрацию
+        loginPage.clickRegisterLink(); // перешли в регистрацию
+        registerPage.clickLoginLink();
         loginPage.login(EMAIL, PASSWORD);
         //Проверка успешного входа в личный кабинет
         mainPage.clickPersonalAccountButton();
@@ -90,5 +90,9 @@ public class LoginUiTest extends BaseUiTest {
             UserStep.deleteUser(userAccessToken);
             userAccessToken = null;
         }
+        // Закрытие браузера (дополнительно)
+        if (driver != null) {
+            driver.quit();
+       }
     }
 }

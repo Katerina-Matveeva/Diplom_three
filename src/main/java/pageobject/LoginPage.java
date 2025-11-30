@@ -15,6 +15,7 @@ public class LoginPage {
     final By passwordField = By.xpath("//input[@name='Пароль']"); // Поле пароль
     final By loginButton = By.xpath("//button[text()='Войти']"); // Кнопка "Войти"
     final By forgotPasswordLink = By.xpath("//a[@href='/forgot-password']"); // Ссылка на восстановление пароля
+    final By registerLink = By.cssSelector("a.Auth_link__1fOlj");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -46,6 +47,12 @@ public class LoginPage {
     public void clickForgotPasswordLink() {
         driver.findElement(forgotPasswordLink).click();
     }
+
+    @Step("Клик по ссылке регистрации")
+    public void clickRegisterLink() {
+        driver.findElement(registerLink).click();
+    }
+
 
     @Step("Ожидание загрузки страницы входа")
     public void waitForPageLoad() {

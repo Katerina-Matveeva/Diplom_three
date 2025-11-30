@@ -19,6 +19,7 @@ public class ConstructorTest extends BaseUiTest {
         assertTrue("Вкладка 'Булки' не видна", bunsTab.isDisplayed());
         assertTrue("Вкладка 'Булки' не кликабельна", bunsTab.isEnabled());
 
+        constructorPage.clickSaucesTab(); //Добавлен дополнительный первый клик
         constructorPage.clickBunsTab();
         assertEquals("Булки", constructorPage.getActiveTabText());
         assertTrue("Вкладка 'Булки' не активна", constructorPage.isBunsTabActive());
